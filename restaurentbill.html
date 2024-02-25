@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+
+  <style type="text/css">
+  	*{
+  		margin: 0;
+  		padding: 0;
+  	}
+    h1.header{
+      text-align: center;
+      font-family: Forte;
+      text-decoration: underline;
+    }
+    h1 input {
+    	border: none;
+    	font-size: 25px;
+    	font-weight: bold;
+    	width: 220px;
+    	text-decoration: ;
+    	font-family:Algerian;
+    }
+
+    .d-flex{
+      display: flex;
+      margin: 0 100px;
+    }
+    .leftt
+    {
+    	width: 50%;
+    }
+    .rightt
+    {
+    	width: 50%;
+    }
+
+    .img{
+    	height: 200px;
+
+      	padding: 20px;
+      	display: flex;
+      	font-size: 20px;
+      	border: 5px double black;
+    	font-weight: bolder;
+    	margin: 5px;
+    	border-radius: 10px;
+
+    }
+
+    .img img{
+      width: 230px;
+      border-radius: 10px;
+    }
+    .check
+    {
+    	height: 20px;
+    	width: 20px;
+    }
+    .value input{
+    		font-size: 20px;
+    		width: 40px;
+    		border: none;
+    		font-weight: bold;
+    		margin-top: 20px;
+
+    }
+    .number
+    {
+    	margin-bottom: 20px;
+    	width: 60px;
+    	padding: 8px 8px;
+    	border: 2px solid grey;
+    	border-radius: 10px;
+    	font-family: Berlin Sans FB;
+
+    }
+    .value
+    {
+    	font-size: 20px;
+    }
+    .right
+    {
+    	margin-top: 0px;
+    	margin-left: 90px;
+    }
+    .header
+    {
+    	position: sticky;
+    	margin-left: 50%;
+    	z-index: 3;
+    	top: 0;
+    	transform: translatex(-50%);
+    	background-color: grey;
+    	width: 100%;
+    	padding: 10px 0;
+    }
+    footer
+    {
+    	height: 100px;
+    	position: sticky;
+    	z-index: 3;
+    	bottom: 0;
+    	background-color: grey;
+    	padding-top: 20px;
+    	font-family: Berlin Sans FB;
+    	font-size: 18px;
+    	padding-left: 100px;
+    	width: 100%;
+/*    	display: flex;*/
+    }
+    footer input{
+    	padding: 10px 10px;
+    	font-weight: bold;
+    	border: 2px solid black;
+    	border-radius: 10px;
+    	width: 80px;
+    }
+    footer button{
+    	padding: 10px 10px;
+    	border: 2px solid black;
+    	border-radius:10px;
+/*    	width: 80px;*/
+    	text-decoration-line: none;
+    }
+    footer a {
+    	text-decoration-line:none ;
+    	font-weight: bold;
+    	color: black;
+
+    }
+    footer.none{
+    	height: 100px;
+    	width: 200px;
+    }
+    .foleft
+    {
+    	width: 100%;
+    	margin-left: 10px;
+    	margin-top: 20px;
+    	display: flex;
+
+    }
+    footer #nn{
+    	margin-left: 20px;
+    }
+  </style>
+
+  <script type="text/javascript">
+  	var sum=0,bb=0,gst=0,total=0,a=[,,,,,,,,,,,,,,,,,,,],i=0,n=0,no=0;
+  	
+  	function checkdata(x) {
+  		
+  		var check=document.getElementById('check'+x);
+  		
+  		
+  		if(check.checked==true)
+  		{
+  			
+  			var val=document.getElementById('rupee'+x).value;
+  			var num=document.getElementById('no'+x).value;
+  			
+  				num=parseInt(num);
+  				console.log(num);
+
+
+  			val=parseInt(val);
+  			// console.log(num);
+
+  			if(num>0)
+  			{
+  				val=val*num;
+  			}
+
+  			sum=sum+val;
+  			gst=(sum*18)/100;
+  			document.getElementById('gst').value=gst;
+  			document.getElementById('ww').value=sum;
+  			var naam=document.getElementById('name'+x);
+
+  			a[i]=naam.value;
+  			console.log(a[i]);
+
+  			i++;
+  			console.log(i);
+
+  			// n++;
+  		// console.log(a);
+
+  			document.getElementById('nn').innerText +=naam.value;
+  			document.getElementById('nn').innerHTML +="&nbsp;&nbsp;&nbsp;,";
+
+  		}
+  		else
+  		{
+  		console.log(n);
+
+  		naam=document.getElementById('name'+x);
+  		console.log(naam);
+  		console.log(a);
+  		var r=a.indexOf(document.getElementById('name'+x).value);
+  		console.log(r);
+  		i--;
+
+			if(r==0)
+			{
+				i=0;
+			}
+
+  			for ( var z = r; z < a.length-1; z++) {
+
+  				
+  						a[z]=a[z+1];
+  			}
+  			document.getElementById('nn').innerText=" ";
+  			var m=0;
+
+  			while(a[m]!=undefined)
+  			{
+  				document.getElementById('nn').innerText+=a[m];
+  			
+  				m++;
+  			}
+  			var vall=document.getElementById('ww').value=sum;
+  			var val=document.getElementById('rupee'+x).value;
+  			var num=document.getElementById('no'+x).value;
+  				num=parseInt(num);
+  				console.log(num);
+
+  			if(num>0)
+  			{
+  				val=val*num;
+  			}
+
+
+  			sum=vall-val;
+  			gst=(sum*18)/100;
+  			document.getElementById('gst').value=gst;
+  			document.getElementById('ww').value=sum;
+
+  			document.getElementById('no'+x).value="";
+
+  		}
+  	}
+
+  	function check(y) {
+  		pr=y/100;
+  		total=gst+sum;
+  		var ee=total*pr;
+  		total=total-ee;
+  		document.getElementById('total').value=total;
+
+  	}
+
+  </script>
+
+</head>
+<body>
+  <h1 class="header">Restaurant Menu</h1>
+
+<div class="d-flex">
+   	<div class="leftt">
+   			<div class="img">
+				<img src="1.webp">
+    			<div class="right">
+    				
+    				<h1><input type="text" name="" value="Burger" id="name0" readonly></h1>
+				    <div class="value">
+				    	Price : <input type="text" value="100" readonly id="rupee0">Rupee<br><br>
+				    </div>
+				     No Of Orders : <input type="text" value="" name="" class="number" placeholder="no" id="no0"><br>
+
+				     Select Item : <input type="checkbox" name="" class="check" id="check0" onchange="checkdata('0')">
+    			</div>
+    		</div>
+    		<div class="img">
+				<img src="2.webp">
+    			<div class="right">
+    				<h1><input type="text" name="" value="French Fries" id="name1" readonly></h1>
+
+				    <div class="value">
+				    	Price : <input type="text" value="60" readonly id="rupee1">Rupee<br><br>
+				    </div>
+				    No Of Orders : <input type="text" value="" name="" class="number" placeholder="no" id="no1"><br>
+				     Select Item : <input type="checkbox" name="" class="check" id="check1" onchange="checkdata('1')">
+
+    			</div>
+
+    		</div>
+    		<div class="img">
+				<img src="3.webp">
+    			<div class="right">
+    				<h1><input type="text" name="" value="Momos" id="name2" readonly></h1>
+
+				    <div class="value">
+				    	Price : <input type="text" value="130" readonly id="rupee2">Rupee<br><br>
+				    </div>
+				    No Of Orders : <input type="text" value="" name="" class="number" placeholder="no" id="no2"><br>	
+				     Select Item : <input type="checkbox" name="" class="check" id="check2" onchange="checkdata('2')">
+    			</div>
+
+    		</div>
+    		<div class="img">
+				<img src="4.jpg">
+    			<div class="right">
+    				<h1><input type="text" name="" value="Pani Puri" id="name3" readonly></h1>
+
+				    <div class="value">
+				    	Price : <input type="text" value="70" readonly id="rupee3">Rupee<br><br>
+				    </div>
+				    No Of Orders : <input type="text" value="" name="" class="number" placeholder="no" id="no3"><br>
+				     Select Item : <input type="checkbox" name="" class="check" id="check3" onchange="checkdata('3')">
+    			</div>
+
+    		</div>
+    		<div class="img">
+				<img src="5.webp">
+    			<div class="right">
+    				<h1><input type="text" name="" value="Dhosa" id="name4" readonly></h1>
+
+				    <div class="value">
+				    	Price : <input type="text" value="150" readonly id="rupee4">Rupee<br><br>
+				    </div>
+				    No Of Orders : <input type="text" value="" name="" class="number" placeholder="no" id="no4"><br>
+				     Select Item : <input type="checkbox" name="" class="check" id="check4" onchange="checkdata('4')">
+    			</div>
+
+    		</div>
+    		<div class="img">
+				<img src="6.jpg">
+    			<div class="right">
+    				<h1><input type="text" name="" value="Maggiee" id="name5" readonly></h1>
+
+				    <div class="value">
+				    	Price : <input type="text" value="110" readonly id="rupee5">Rupee<br><br>
+				    </div>
+				    No Of Orders : <input type="text" value="" name="" class="number" placeholder="no" id="no5"><br>
+				     Select Item : <input type="checkbox" name="" class="check" id="check5" onchange="checkdata('5')">
+    			</div>
+
+    		</div>
+    		<div class="img">
+				<img src="7.jpg">
+    			<div class="right">
+    				<h1><input type="text" name="" value="Manchurian" id="name6" readonly></h1>
+
+				    <div class="value">
+				    	Price : <input type="text" value="200" readonly id="rupee6">Rupee<br><br>
+				    </div>
+				    No Of Orders : <input type="text" value="" name="" class="number" placeholder="no" id="no6"><br>
+				     Select Item : <input type="checkbox" name="" class="check" id="check6" onchange="checkdata('6')">
+    			</div>
+
+    		</div>
+    		<div class="img">
+				<img src="8.jpeg">
+    			<div class="right">
+    				<h1><input type="text" name="" value="Shahi Paneer" id="name7" readonly></h1>
+
+				    <div class="value">
+				    	Price : <input type="text" value="220" readonly id="rupee7">Rupee<br><br>
+				    </div>
+				    No Of Orders : <input type="text" value="" name="" class="number" placeholder="no" id="no7"><br>
+				     Select Item : <input type="checkbox" name="" class="check" id="check7" onchange="checkdata('7')">
+    			</div>
+
+    		</div>
+    		<div class="img">
+				<img src="9.jpg">
+    			<div class="right">
+    				<h1><input type="text" name="" value="Hot Dog" id="name8" readonly></h1>
+
+				    <div class="value">
+				    	Price : <input type="text" value="180" readonly id="rupee8">Rupee<br><br>
+				    </div>
+				    No Of Orders : <input type="text" value="" name="" class="number" placeholder="no" id="no8"><br>
+				     Select Item : <input type="checkbox" name="" class="check" id="check8" onchange="checkdata('8')">
+    			</div>
+
+    		</div>
+    		<div class="img">
+				<img src="10.jpg">
+    			<div class="right">
+    				<h1><input type="text" name="" value="Frankie" id="name9" readonly></h1>
+
+				    <div class="value">
+				    	Price : <input type="text" value="100" readonly id="rupee9">Rupee<br><br>
+				    </div>
+				    No Of Orders : <input type="text" value="" name="" class="number" placeholder="no" id="no9"><br>
+				     Select Item : <input type="checkbox" name="" class="check" id="check9" onchange="checkdata('9')">
+    			</div>
+
+    		</div>
+
+    		
+  	</div>
+  	<div class="rightt">
+   			<div class="img">
+				<img src="11.webp">
+    			<div class="right">
+    				
+    				<h1><input type="text" name="" value="Coca Cola" id="name10" readonly></h1>
+				    <div class="value">
+				    	Price : <input type="text" value="90" readonly id="rupee10">Rupee<br><br>
+				    </div>
+				    No Of Orders : <input type="text" value="" name="" class="number" placeholder="no" id="no10"><br>
+				     Select Item : <input type="checkbox" name="" class="check" id="check10" onchange="checkdata('10')">
+    			</div>
+    		</div>
+    		<div class="img">
+				<img src="12.webp">
+    			<div class="right">
+    				<h1><input type="text" name="" value="Blue Spirullina" id="name11" readonly></h1>
+
+				    <div class="value">
+				    	Price : <input type="text" value="230" readonly id="rupee11">Rupee<br><br>
+				    </div>
+				    No Of Orders : <input type="text" value="" name="" class="number" placeholder="no" id="no11"><br>
+				     Select Item : <input type="checkbox" name="" class="check" id="check11" onchange="checkdata('11')">
+    			</div>
+
+    		</div>
+    		<div class="img">
+				<img src="13.webp">
+    			<div class="right">
+    				<h1><input type="text" name="" value="Chips" id="name12" readonly></h1>
+
+				    <div class="value">
+				    	Price : <input type="text" value="80" readonly id="rupee12">Rupee<br><br>
+				    </div>
+				    No Of Orders : <input type="text" value="" name="" class="number" placeholder="no" id="no12"><br>	
+				     Select Item : <input type="checkbox" name="" class="check" id="check12" onchange="checkdata('12')">
+    			</div>
+
+    		</div>
+    		<div class="img">
+				<img src="14.webp">
+    			<div class="right">
+    				<h1><input type="text" name="" value="Pizza" id="name13" readonly></h1>
+
+				    <div class="value">
+				    	Price : <input type="text" value="230" readonly id="rupee13">Rupee<br><br>
+				    </div>
+				    No Of Orders : <input type="text" value="" name="" class="number" placeholder="no" id="no13"><br>
+				     Select Item : <input type="checkbox" name="" class="check" id="check13" onchange="checkdata('13')">
+    			</div>
+
+    		</div>
+    		<div class="img">
+				<img src="15.webp">
+    			<div class="right">
+    				<h1><input type="text" name="" value="Vada Pav" id="name14" readonly></h1>
+
+				    <div class="value">
+				    	Price : <input type="text" value="70" readonly id="rupee14">Rupee<br><br>
+				    </div>
+				    No Of Orders : <input type="text" value="" name="" class="number" placeholder="no" id="no14"><br>
+				     Select Item : <input type="checkbox" name="" class="check" id="check14" onchange="checkdata('14')">
+    			</div>
+
+    		</div>
+    		<div class="img">
+				<img src="16.jpeg">
+    			<div class="right">
+    				<h1><input type="text" name="" value="Pakoda" id="name15" readonly></h1>
+
+				    <div class="value">
+				    	Price : <input type="text" value="80" readonly id="rupee15">Rupee<br><br>
+				    </div>
+				    No Of Orders : <input type="text" value="" name="" class="number" placeholder="no" id="no15"><br>
+				     Select Item : <input type="checkbox" name="" class="check" id="check15" onchange="checkdata('15')">
+    			</div>
+
+    		</div>
+    		<div class="img">
+				<img src="17.jpg">
+    			<div class="right">
+    				<h1><input type="text" name="" value="Samosa" id="name16" readonly></h1>
+
+				    <div class="value">
+				    	Price : <input type="text" value="60" readonly id="rupee16">Rupee<br><br>
+				    </div>
+				    No Of Orders : <input type="text" value="" name="" class="number" placeholder="no" id="no16"><br>
+				     Select Item : <input type="checkbox" name="" class="check" id="check16" onchange="checkdata('16')">
+    			</div>
+
+    		</div>
+    		<div class="img">
+				<img src="18.jpg">
+    			<div class="right">
+    				<h1><input type="text" name="" value="Rice" id="name17" readonly></h1>
+
+				    <div class="value">
+				    	Price : <input type="text" value="100" readonly id="rupee17">Rupee<br><br>
+				    </div>
+				    No Of Orders : <input type="text" value="" name="" class="number" placeholder="no" id="no17"><br>
+				     Select Item : <input type="checkbox" name="" class="check" id="check17" onchange="checkdata('17')">
+    			</div>
+
+    		</div>
+    		<div class="img">
+				<img src="19.jpg">
+    			<div class="right">
+    				<h1><input type="text" name="" value="Pav Bhaji" id="name18" readonly></h1>
+
+				    <div class="value">
+				    	Price : <input type="text" value="130" readonly id="rupee18">Rupee<br><br>
+				    </div>
+				    No Of Orders : <input type="text" value="" name="" class="number" placeholder="no" id="no18"><br>
+				     Select Item : <input type="checkbox" name="" class="check" id="check18" onchange="checkdata('18')">
+    			</div>
+
+    		</div>
+    		<div class="img">
+				<img src="20.jpg">
+    			<div class="right">
+    				<h1><input type="text" name="" value="Dabeli" id="name20" readonly></h1>
+
+				    <div class="value">
+				    	Price : <input type="text" value="70" readonly id="rupee20">Rupee<br><br>
+				    </div>
+				    No Of Orders : <input type="text" value="" name="" class="number" placeholder="no" id="no20"><br>
+				     Select Item : <input type="checkbox" name="" class="check" id="check20" onchange="checkdata('20')">
+    			</div>
+
+    		</div>
+
+    		
+  	</div>
+  		
+    
+  </div>
+  <footer class="footer">
+  	
+  
+  		Total amount : <input type="text" name="" id="ww">
+  		Gst Amount : <input type="text" name="" id="gst">
+  		Discount promo : <input type="button" name=""id="promo0" value="Mohit1" onclick="check(10)" placeholder="mohit1">
+  		<input type="button" name=""id="promo1" value="Mohit2" onclick="check(15)" placeholder="mohit1">
+  		<input type="button" name=""id="promo2" value="Mohit3" onclick="check(20)" placeholder="mohit1">
+  		<input type="button" name=""id="promo3" value="Mohit4" onclick="check(25)" placeholder="mohit1">
+  		<input type="button" name=""id="promo4" value="Mohit5" onclick="check(30)" placeholder="mohit1">
+  		Nett Amount : <input type="text" name="" id="total">
+  		<button><a href="restaurentbill.html">CLEAR DATA</a></button>
+
+  	<div class="foleft">
+  		<p>Items : </p>
+  		<p id="nn"></p>
+  	</div>
+
+	
+  	
+  	
+
+
+  </footer>
+
+</body>
+</html>
